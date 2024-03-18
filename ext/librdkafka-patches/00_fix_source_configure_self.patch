@@ -1,0 +1,14 @@
+--- ./mklove/modules/configure.base	2023-10-25 05:49:10.000000000 +1100
++++ ./mklove/modules/configure.base	2024-03-15 01:27:17.111248400 +1100
+@@ -2120,6 +2120,11 @@
+     local save_MKL_MODULE=$MKL_MODULE
+     MKL_MODULE=$modname
+
++    if [[ $fname = "configure.self" ]]; then
++      echo "Renaming configure.self -> ./configure.self"
++      fname="./configure.self"
++    fi
++
+     mkl_dbg "Loading module $modname (required by $cmod) from $fname"
+
+     # Source module file (positional arguments are available to module)
